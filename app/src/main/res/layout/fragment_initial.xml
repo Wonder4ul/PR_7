@@ -8,7 +8,7 @@
     android:background="#AF6060"
     android:backgroundTint="#55C4D3"
     android:foregroundTint="#35737A"
-    tools:context=".UserInterface.BlankFragment">
+    tools:context=".UserInterfaces.InitialFragment">
 
     <RelativeLayout
         android:layout_width="276dp"
@@ -62,6 +62,7 @@
             android:id="@+id/wc1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/initial_1"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textStyle="bold" />
@@ -71,6 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
+            android:text="@string/initial_2"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -81,10 +83,22 @@
             android:id="@+id/wc3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/initial_3"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textStyle="bold" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/lib_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Библиотека"
+        android:backgroundTint="#354BC5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

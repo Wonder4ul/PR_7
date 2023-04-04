@@ -1,5 +1,6 @@
-package com.example.pr_71.UserInterface;
+package com.example.pr_71;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,31 +10,31 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.pr_71.Model.BookInfo;
-import com.example.pr_71.R;
+import com.example.pr_71.Models.BookInfo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookRecycleAdapter extends RecyclerView.Adapter<BookRecycleAdapter.ViewHolder>{
-    interface OnBookClickListener{
+    public interface OnBookClickListener{
         void onBookClick(BookInfo book, int position);
     }
     private final OnBookClickListener onClickListener;
     private final LayoutInflater inflater;
-    private final List<BookInfo> books;
-    BookRecycleAdapter(Context context, List<BookInfo> books, OnBookClickListener onClickListener) {
+    public List<BookInfo> books;
+     public BookRecycleAdapter(Context context,  OnBookClickListener onClickListener) {
         this.onClickListener = onClickListener;
-        this.books = books;
+        this.books = new ArrayList<>();
         this.inflater = LayoutInflater.from(context);
     }
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public BookRecycleAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = inflater.inflate(R.layout.list_item, parent, false);
         return new ViewHolder(view);
     }
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         BookInfo book = books.get(position);
         holder.picView.setImageResource(book.getPictureResource());
         holder.nameView.setText(book.getName());
@@ -45,6 +46,14 @@ public class BookRecycleAdapter extends RecyclerView.Adapter<BookRecycleAdapter.
             }
         });
     }
+
+    @SuppressLint("NotifyDataSetChanged")
+    public void update(final List<BookInfo> books) {
+        this.books.clear();
+        this.books = books;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return books.size();

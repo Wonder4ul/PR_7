@@ -1,4 +1,4 @@
-package com.example.pr_71.Model;
+package com.example.pr_71.Models;
 
 public class BookInfo {
     private String name;

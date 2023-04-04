@@ -1,6 +1,5 @@
-package com.example.pr_71.UserInterface;
+package com.example.pr_71.UserInterfaces;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,21 +14,15 @@ import androidx.navigation.Navigation;
 
 import com.example.pr_71.R;
 
-import java.util.Random;
+public class RegistrationFragment extends Fragment {
 
-public class BlankFragment2 extends Fragment {
-    private Context context;
-    private final int duration = Toast.LENGTH_SHORT;
-
-    private static final String TAG = "BlankFragment2";
-    public BlankFragment2() {
-        super(R.layout.fragment_blank2);
+    public RegistrationFragment() {
+        super(R.layout.fragment_registration);
     }
 
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Random r = new Random();
         int randomNumber = (int)(Math.random()*100000);
         TextView ticket = view.findViewById(R.id.ticket);
         ticket.setText(String.valueOf(randomNumber));
@@ -43,13 +36,10 @@ public class BlankFragment2 extends Fragment {
 
 
         Button button2 = view.findViewById(R.id.buttonToList2);
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Bundle bundle = new Bundle();
-                bundle.putString("key1", String.valueOf(text.getEditableText()));
-                Navigation.findNavController(view).navigate(R.id.action_blankFragment2_to_blankFragment3, bundle);
-            }
+        button2.setOnClickListener(view1 -> {
+            Bundle bundle = new Bundle();
+            bundle.putString("key1", String.valueOf(text.getEditableText()));
+            Navigation.findNavController(view1).navigate(R.id.action_blankFragment2_to_blankFragment3, bundle);
         });
 
     }

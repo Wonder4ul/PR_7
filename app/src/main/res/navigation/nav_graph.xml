@@ -6,18 +6,21 @@
     app:startDestination="@id/blankFragment">
     <fragment
         android:id="@+id/blankFragment"
-        android:name="com.example.pr_71.UserInterface.BlankFragment"
+        android:name="com.example.pr_71.UserInterfaces.InitialFragment"
         android:label="fragment_blank"
-        tools:layout="@layout/fragment_blank" >
+        tools:layout="@layout/fragment_initial" >
         <action
             android:id="@+id/action_blankFragment_to_blankFragment2"
             app:destination="@id/blankFragment2" />
+        <action
+            android:id="@+id/action_blankFragment_to_libraryFragment"
+            app:destination="@id/libraryFragment" />
     </fragment>
     <fragment
         android:id="@+id/blankFragment2"
-        android:name="com.example.pr_71.UserInterface.BlankFragment2"
+        android:name="com.example.pr_71.UserInterfaces.RegistrationFragment"
         android:label="fragment_blank2"
-        tools:layout="@layout/fragment_blank2" >
+        tools:layout="@layout/fragment_registration" >
         <action
             android:id="@+id/action_blankFragment2_to_blankFragment3"
             app:destination="@id/blankFragment3" />
@@ -27,9 +30,9 @@
     </fragment>
     <fragment
         android:id="@+id/blankFragment3"
-        android:name="com.example.pr_71.UserInterface.BlankFragment3"
+        android:name="com.example.pr_71.UserInterfaces.BookList"
         android:label="fragment_blank3"
-        tools:layout="@layout/fragment_blank3" >
+        tools:layout="@layout/fragment_book_list" >
         <argument
             android:name="userName"
             app:argType="string"
@@ -40,7 +43,16 @@
     </fragment>
     <fragment
         android:id="@+id/blankFragment4"
-        android:name="com.example.pr_71.UserInterface.BlankFragment4"
-        android:label="BlankFragment4" />
+        android:name="com.example.pr_71.UserInterfaces.BookMainPage"
+        android:label="BlankFragment4" >
+        <action
+            android:id="@+id/action_blankFragment4_to_libraryFragment"
+            app:destination="@id/libraryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/libraryFragment"
+        android:name="com.example.pr_71.UserInterfaces.LibraryFragment"
+        android:label="fragment_library"
+        tools:layout="@layout/fragment_library" />
 </navigation>
 
